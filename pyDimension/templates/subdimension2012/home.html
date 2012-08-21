@@ -1,0 +1,13 @@
+{% extends "subdimension2012/layout.html" %}
+{% block head_title %}home{% endblock %}
+{% block body %}
+
+  {% for article in articles %}
+    <article>
+        {{article.html|safe}}
+        
+        <p class="byline">Posted by {{author}} On {{article.pubDate[1]}} | <a href="{{article.url}}">permalink</a></p>
+    </article>
+  {% endfor %}
+  
+{% endblock %}

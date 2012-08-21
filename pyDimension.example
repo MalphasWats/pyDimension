@@ -1,0 +1,43 @@
+<VirtualHost *:80>
+    ServerName www.example.com
+
+    WSGIDaemonProcess pyDimension_t user=www-data group=www-data umask=0002 threads=5 home=/path/to/pyDimension
+    WSGIScriptAlias / /path/to/pyDimension.wsgi
+
+    <Directory /path/to/pyDimension>
+        WSGIProcessGroup pyDimension_t
+        WSGIApplicationGroup %{GLOBAL}
+	WSGIScriptReloading On
+        Order deny,allow
+        Allow from all
+    </Directory>
+</VirtualHost>
+
+
+#Separate server runs the search process on the static frontend
+<VirtualHost *:80>
+    ServerName www.example.com
+
+    DocumentRoot /path/to/static_website
+    WSGIDaemonProcess pyDimension_search user=www-data group=www-data umask=0002 threads=5 home=/path/to/pyDimension
+    WSGIScriptAlias /search /path/to/search.wsgi
+
+    <Directory /path/to/static_website>
+            WSGIProcessGroup pyDimension_search
+            WSGIApplicationGroup %{GLOBAL}
+        WSGIScriptReloading On
+        Options -Indexes FollowSymLinks -MultiViews
+        AllowOverride All
+        Order allow,deny
+        allow from all
+    </Directory>
+
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+
+    # Possible values include: debug, info, notice, warn, error, crit,
+    # alert, emerg.
+    LogLevel warn
+
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+</VirtualHost>

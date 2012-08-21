@@ -1,0 +1,16 @@
+SECRET_KEY = 'banana' # used for encrypting session data
+AUTHOR = 'Author' # displayed in post bylines
+USERNAME = 'author.user'
+# sha512 hash
+PASSWORD_HASH = 'b109f3bbbc244eb82441917ed06d618b9008dd09b3befd1b5e07394c706a8bb980b1d7785e5976ec049b46df5f1326af5a2ea6d103fd07c95385ffab0cacbc86' #default is password, see readme for how to generate a new password
+SITE_ROOT_DIR = '/path/to/html_website' # this is where your site is built
+SITE_ROOT_URL = '/' # www.example.com/blog, would be 'blog'
+SITE_TEMPLATE = 'subdimension2012' # template directory to use when building site
+SITE_URL = 'http://www.example.com' # your site's address
+RSS_FEED_FILENAME = 'blog_feed.xml' # built at www.example.com/blog_feed.xml
+
+DRAFTS_ROOT_DIR = '/path/to/drafts/folder' # can be anywhere, mine is a Dropbox synched notes folder
+
+SEARCH_INDEX_DIR = '/path/to/search_index' # used for building search index
+
+HOME_ARTICLE_COUNT = 10 # number of articles displayed on the home page.

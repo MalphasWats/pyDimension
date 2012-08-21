@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <h2>New Article</h2>
+  <form method="post" action="{{ url_for('save') }}" id="contentForm">
+    <input type="hidden" name="filename" value="">
+    <p><textarea name="text" tabindex="1">#title
+
+text</textarea></p>
+
+    <p>
+      <input type="hidden" name="wasDraft" value="no">
+      <input name="save" type="submit" tabindex="4" value="Publish"> <input name="preview" type="submit" tabindex="3" value="Preview">
+      <input name="draft" id="draft" type="checkbox" tabindex="2"> <label for="draft">Save as draft</label>
+    </p>
+  </form>
+{% endblock %}
+
+{% block sidebar %}
+  <h3>articles</h3>
+  <dl  id="articleList">
+  {% for article in articles %}
+    <dt><a href="{{ article.editurl }}">{{ article.title }}</a></dt>
+    <dd>{{ article.pubDate[1] }} <a href="/delete/article/{{article.filename}}" onclick="return confirmDelete('{{article.title}}');">delete</a></dd>
+  {% else %}
+    <dt><em>No Articles</em></dt>
+  {% endfor %}
+  </dl>
+  
+  <h3>drafts</h3>
+  <dl id="draftList">
+  {% for draft in drafts %}
+    <dt><a href="{{ draft.editurl }}">{{ draft.title }}</a></dt>
+    <dd>{{draft.snippet}} <a href="/delete/draft/{{draft.filename}}" onclick="return confirmDelete('{{draft.title}}')">delete</a></dd>
+  {% else %}
+    <dt><em>No Drafts</em></dt>
+  {% endfor %}
+  </dl>
+{% endblock %}

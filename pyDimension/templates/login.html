@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+{% block body %}
+  <h2>Log in</h2>
+	<form method="post" action="/login" id="login">
+	<input type="hidden" name="next" value="{{next}}">
+	<p><input type="text" name="username" value="" size="22" tabindex="1">
+	<label for="username">username</label></p>
+
+	<p><input type="password" name="password" value="" size="22" tabindex="2">
+	<label for="password">password</label></p>
+	<p><input name="submit" type="submit" id="submit" tabindex="4" value="login"></p>
+{% endblock %}
+

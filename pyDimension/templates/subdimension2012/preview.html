@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<link rel="stylesheet" type="text/css" href="http://subdimension.co.uk/style/subdimension2012/subdimension2012.css">
+
+<title>{{content.title}} &raquo; subdimension</title>
+
+</head>
+
+<body>
+
+<header>
+	<h1>subDimension</h1>
+	<p>my place to put things</p>
+</header>
+
+<nav>
+	<ul>
+		<li><a href="/">blog</a></li>
+		<li><a href="http://subdimension.co.uk/2011/04/17/projects.html">projects</a></li>
+		<li><a href="http://subdimension.co.uk/2011/04/05/about_me.html">about me</a></li>
+		<li class="spacer"><a href="/archive.html">archive</a></li>
+		<li class="spacer"><a href="http://twitter.com/MalphasWats">twitter</a></li>
+		<li><a href="http://www.facebook.com/MalphasWats">facebook</a></li>
+		<li><a href="http://stackoverflow.com/users/123217/malphaswats">stack overflow</a></li>
+		<li class="spacer"><form method="post" action="http://subdimension.co.uk/search"><input type="text" name="search_string" id="search_string" size="18" value="search" onfocus="this.value='';" onblur="this.value='search';"></form></li>
+	</ul>
+</nav>
+
+<section>
+    <article>
+        {{content.html|safe}}
+        
+        <p class="byline">Posted by {{author}} On {{pubDate}} | <a href="{{content.url}}">permalink</a></p>
+    </article>
+</section>
+
+</body>
+</html>

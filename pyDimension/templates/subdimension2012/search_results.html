@@ -1,0 +1,12 @@
+{% extends "subdimension2012/layout.html" %}
+{% block head_title %}search results &raquo; home{% endblock %}
+{% block body %}
+    <h2>Search Results for: {{terms}}</h2>
+    <article>
+        <ul>
+        {% for result in results %}
+            <li><a href="{{ result[1] }}">{{result[2]}}</a></li>
+        {% endfor %}
+        </ul>
+    </article>
+{% endblock %}

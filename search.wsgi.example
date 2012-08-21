@@ -1,0 +1,6 @@
+import sys
+
+sys.path.append('/path/to/pyDimension')
+
+from pyDimension import srch as application
+application.config.from_pyfile('/path/to/settings.cfg')

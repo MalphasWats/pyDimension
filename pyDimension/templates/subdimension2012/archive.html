@@ -1,0 +1,16 @@
+{% extends "subdimension2012/layout.html" %}
+{% block head_title %}archive{% endblock %}
+{% block body %}
+<article>
+    <h1>Archive {{breadcrumb}}</h1>
+    <nav>
+        <ul>
+            {% for i in items %}
+    
+                <li><a href="{{site_root_url}}{{breadcrumb}}{{i[0]}}">{{i[1]}}</a></li>
+    
+            {% endfor %}
+        </ul>
+    </nav>
+</article>
+{% endblock %}

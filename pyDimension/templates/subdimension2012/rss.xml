@@ -1,0 +1,27 @@
+﻿<rss version="2.0">
+<channel>
+    <title>subdimension.co.uk blog feed</title>
+    <link>http://subdimension.co.uk/</link>
+    <description/>
+    <copyright>All rights reserved.</copyright>
+    <language>en-GB</language>
+    <lastBuildDate>{{date}}</lastBuildDate>
+    <ttl>1440</ttl>
+    {% for item in items %}
+    <item>
+        <title><![CDATA[{{item.title}}]]></title>
+        {% if item.link == '' %}
+        <link>{{item.url}}</link>
+        <guid>{{item.url}}</guid>
+        {% else %}
+        <link>{{item.link}}</link>
+        <guid isPermaLink="false">{{item.url}}</guid>
+        {% endif %}
+        <description><![CDATA[
+        {{item.body_html|safe}}
+        ]]></description>
+        <pubDate>{{item.pubDate[0]}}</pubDate>
+    </item>
+    {% endfor %}
+</channel>
+</rss>
